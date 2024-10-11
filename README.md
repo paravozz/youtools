@@ -77,8 +77,13 @@ Options:
 -s, --silent                mute output. (default: false)
 -h, --help                  display help for command
 ```
-
 If you use config file – options from config will override defaults, unless explicitly specified in command.
+
+**Example:**
+```bash
+npx youtools@latest add left-pad
+```
+This will copy `left-pad.ts` to your `lib/utils` and append `export * from "./left-pad"` to `lib/utils/index.ts` file
 
 ---
 
