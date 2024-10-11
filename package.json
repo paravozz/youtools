@@ -1,6 +1,6 @@
 {
   "name": "youtools",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "collection of re-usable utils without need of having a dependency",
   "exports": "./dist/index.js",
   "bin": "./dist/index.js",

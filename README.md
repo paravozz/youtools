@@ -1,7 +1,7 @@
 # YOUTools
 (**Y**our **O**wn **U**tility **Tools**)
 
-![logo](logo.png)
+![logo](logo.png?raw=true)
 
 It's a ~~*utility library*~~ **collection of small utilities** that you can copy and paste into your app.
 

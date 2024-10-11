@@ -93,14 +93,16 @@ export const add = new Command()
         const outputFileName = `${utilName}.${outputExt}`;
         const outputFilePath = path.join(outputDir, outputFileName);
 
-        if (existsSync(outputFilePath) && !options.overwrite) {
-          if (!options.silent) {
-            logger.info(`Skipping ${utilName}, because overwrite is disabled.`);
-          }
-          continue;
-        } else {
-          if (!options.silent) {
-            logger.info(`${highlighter.bold(outputFileName)} already exist, but will be overwritten.`);
+        if (existsSync(outputFilePath)) {
+          if (options.overwrite) {
+            if (!options.silent) {
+              logger.info(`${highlighter.bold(outputFileName)} already exist, but will be overwritten.`);
+            }
+          } else {
+            if (!options.silent) {
+              logger.info(`Skipping ${utilName}, because overwrite is disabled.`);
+            }
+            continue;
           }
         }
 
