@@ -1,0 +1,10 @@
+node_modules/
+dist/
+
+package-lock.json
+
+# IntelliJ based IDEs
+.idea
+
+# Finder (MacOS) folder config
+.DS_Store

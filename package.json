@@ -1,0 +1,42 @@
+{
+  "name": "youtools",
+  "version": "1.0.0",
+  "description": "collection of re-usable utils without need of having a dependency",
+  "main": "src/index.ts",
+  "exports": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paravozz/youtools.git"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "utils",
+    "npx",
+    "typescript"
+  ],
+  "author": "PRVZ <illia@prvz.dev> (https://prvz.dev)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20",
+    "eslint": "^8",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "typescript": "^5",
+    "vitest": "^2.1.2"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "commander": "^12.1.0",
+    "kleur": "^4.1.5",
+    "tsup": "^8.3.0",
+    "zod": "^3.23.8"
+  }
+}
