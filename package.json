@@ -1,8 +1,7 @@
 {
   "name": "youtools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "collection of re-usable utils without need of having a dependency",
-  "main": "src/index.ts",
   "exports": "./dist/index.js",
   "bin": "./dist/index.js",
   "repository": {
