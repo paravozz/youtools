@@ -10,3 +10,7 @@ export async function POST(request: Request) {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' },
   });
 }
+
+export const config = {
+  runtime: 'nodejs',
+};
