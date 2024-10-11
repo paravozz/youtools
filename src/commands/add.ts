@@ -117,7 +117,7 @@ export const add = new Command()
         }
 
         if (!options.silent) {
-          logger.info(`Compiled and copied ${highlighter.bold(outputFileName)} to ${highlighter.bold(outputDir)}.`);
+          logger.info(`Copied ${highlighter.bold(outputFileName)} to ${highlighter.bold(outputDir)}.`);
         }
 
         if (options.appendToIndex) {
