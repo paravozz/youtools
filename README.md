@@ -36,7 +36,10 @@ Each command has `-h` flag, so you can check how to use it.
 
 ### Config
 You can **optionally** create a config file using
-`npx youtools@latest init`
+
+```bash
+npx youtools@latest init
+```
 
 Options:
 ```
@@ -61,7 +64,9 @@ Default config looks like this:
 
 ### Add
 Use this to install specific util. You can install multiple at a time, space separated.
-`npx youtools@latest add [options] [utils...]`
+```bash
+npx youtools@latest add [options] [utils...]
+```
 
 Options:
 ```
