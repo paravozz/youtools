@@ -7,13 +7,13 @@ It's a ~~*utility library*~~ **collection of small utilities** that you can copy
 
 ---
 
-Motivated by the fact that current situation is you have either micro-libraries
-or big chunks of dependencies like lodash.
-I am not against things like lodash at all, but I believe it's annoying to:
-- install lodash, if you just need debounce;
-- install separate debounce library;
-- write debounce in one project and then open it each time to copy to new one;
-- write debounce each time from the ground up;
+Motivated by the fact that the current situation forces you to choose between micro-libraries
+or big chunks of dependencies like Lodash.
+I’m not against things like Lodash at all, but I believe it’s frustrating to:
+- install lodash just for debounce;
+- OR install separate debounce library;
+- OR write debounce in one project and then copy it manually to every new one;
+- OR rewrite debounce from scratch each time;
 
 So this collection is something I’ll be using myself from project to project, and I’ll be happy if you want to use it too!
 
