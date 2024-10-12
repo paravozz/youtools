@@ -6,6 +6,9 @@
 It's a ~~*utility library*~~ **collection of small utilities** that you can copy and paste into your app.
 
 ---
+[![NPM version](https://img.shields.io/npm/v/youtools.svg?style=flat)](https://www.npmjs.org/package/youtools)
+
+---
 
 Motivated by the fact that the current situation forces you to choose between micro-libraries
 or big chunks of dependencies like Lodash.
@@ -18,8 +21,6 @@ I’m not against things like Lodash at all, but I believe it’s frustrating to
 So this collection is something I’ll be using myself from project to project, and I’ll be happy if you want to use it too!
 
 This thing is highly inspired by [shadcn/ui](https://ui.shadcn.com/) (I mean, I even used chunks of code)
-
----
 
 
 ## Usage
@@ -84,8 +85,6 @@ If you use config file – options from config will override defaults, unless ex
 npx youtools@latest add left-pad
 ```
 This will copy `left-pad.ts` to your `lib/utils` and append `export * from "./left-pad"` to `lib/utils/index.ts` file
-
----
 
 
 ## Contribution
