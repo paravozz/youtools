@@ -2,6 +2,7 @@ import { transpileModule, ModuleKind } from "typescript";
 
 
 export async function POST(request: Request) {
+  console.log("GOT REQUEST");
   const source = await request.text();
 
   let result = transpileModule(source, { compilerOptions: { module: ModuleKind.ESNext }});

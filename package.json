@@ -4,6 +4,7 @@
   "description": "collection of re-usable utils without need of having a dependency",
   "exports": "./dist/index.js",
   "bin": "./dist/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/paravozz/youtools.git"
@@ -11,7 +12,9 @@
   "scripts": {
     "test": "vitest run",
     "dev": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "vercel-build": "tsup transpiler/transpile.ts --format cjs -d dist/vercel/api",
+    "vercel-dev": "tsup transpiler/transpile.ts --format cjs -d dist/vercel/api --watch"
   },
   "files": [
     "dist"

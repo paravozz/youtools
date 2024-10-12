@@ -10,3 +10,4 @@ package-lock.json
 
 # Finder (MacOS) folder config
 .DS_Store
+.vercel
