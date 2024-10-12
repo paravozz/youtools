@@ -13,8 +13,8 @@
     "test": "vitest run",
     "dev": "tsup --watch",
     "build": "tsup",
-    "vercel-build": "tsup transpiler/transpile.ts --format cjs -d dist/vercel/api",
-    "vercel-dev": "tsup transpiler/transpile.ts --format cjs -d dist/vercel/api --watch"
+    "vercel-build": "tsup transpiler/transpile.ts --format esm -d dist/vercel/api",
+    "vercel-dev": "tsup transpiler/transpile.ts --format esm -d dist/vercel/api --watch"
   },
   "files": [
     "dist"
