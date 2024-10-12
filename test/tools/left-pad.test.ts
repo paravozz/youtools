@@ -2,7 +2,8 @@ import { describe, it, expect } from 'vitest';
 
 import { leftPad } from "../../src/tools/left-pad";
 
-describe('String.prototype.padStart', () => {
+
+describe('left-pad', () => {
   it('should pad the string with spaces by default', () => {
     const result = leftPad("abc", 6);
     expect(result).toBe('   abc');

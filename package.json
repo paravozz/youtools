@@ -1,6 +1,6 @@
 {
   "name": "youtools",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "collection of re-usable utils without need of having a dependency",
   "exports": "./dist/index.mjs",
   "bin": "./dist/index.mjs",
@@ -31,9 +31,9 @@
     "@typescript-eslint/parser": "^8.8.1",
     "eslint": "^8",
     "eslint-plugin-simple-import-sort": "^12.0.0",
+    "tsup": "^8.3.0",
     "typescript": "^5",
-    "vitest": "^2.1.2",
-    "tsup": "^8.3.0"
+    "vitest": "^2.1.2"
   },
   "dependencies": {
     "commander": "^12.1.0",
