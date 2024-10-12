@@ -4,7 +4,6 @@
   "description": "collection of re-usable utils without need of having a dependency",
   "exports": "./dist/index.js",
   "bin": "./dist/index.js",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/paravozz/youtools.git"
