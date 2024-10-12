@@ -3,7 +3,7 @@ import { existsSync, writeFileSync } from "fs";
 import path from "path";
 
 import { InitOptionsSchema } from "@/src/lib/schemas";
-import { handleError } from "@/src/lib/utils/handleError";
+import { handleError } from "@/src/lib/utils/handle-error";
 import { logger } from "@/src/lib/utils/logger";
 import { stringBooleanCheck } from "@/src/lib/utils/string-boolean-check";
 import {highlighter} from "@/src/lib/utils/highlighter";

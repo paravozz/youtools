@@ -1,13 +1,14 @@
 import { Command } from "commander";
-import { appendFileSync, copyFileSync, existsSync, mkdirSync, readFileSync } from "fs";
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 
 import { AddOptionsSchema, ConfigSchema } from "@/src/lib/schemas";
-import { compileTsToJs } from "@/src/lib/utils/compile-to-js";
-import { handleError } from "@/src/lib/utils/handleError";
+import { handleError } from "@/src/lib/utils/handle-error";
 import { highlighter } from "@/src/lib/utils/highlighter";
 import { logger } from "@/src/lib/utils/logger";
 import { stringBooleanCheck } from "@/src/lib/utils/string-boolean-check";
+import {fetchFromRegistry} from "@/src/lib/utils/fetch-from-registry";
+import {remoteTranspileToJs} from "@/src/lib/utils/remote-transpile-to-js";
 
 
 const isTsConfigExists = () => existsSync('tsconfig.json');
@@ -87,7 +88,13 @@ export const add = new Command()
       const isTypeScriptProject = options.typescript && isTsConfigExists();
 
       for (const utilName of utils) {
-        const srcTsFilePath = path.join(process.cwd(), 'src', 'tools', `${utilName}.ts`);
+        const fileContent = await fetchFromRegistry(utilName);
+        if (!fileContent) {
+          logger.error(`Failed to fetch the file ${utilName}.ts`);
+          continue;
+        }
+
+        // const srcTsFilePath = path.join(__dirname, 'src', 'tools', `${utilName}.ts`);
         const outputDir = options.path || path.join(process.cwd(), 'lib', 'utils');
         const outputExt = isTypeScriptProject ? "ts" : "js";
         const outputFileName = `${utilName}.${outputExt}`;
@@ -110,11 +117,20 @@ export const add = new Command()
           mkdirSync(outputDir, { recursive: true });
         }
 
-        if (isTypeScriptProject) {
-          copyFileSync(srcTsFilePath, outputFilePath);
-        } else {
-          compileTsToJs(srcTsFilePath, outputDir);
+        let contentToWrite = fileContent;
+
+        if (!isTypeScriptProject) {
+          const transpiledFileContent = await remoteTranspileToJs(fileContent);
+          if (!transpiledFileContent) {
+            if (!options.silent) {
+              logger.warn("Error while transpiling typescript file to js. Will use ts file.");
+            }
+          } else {
+            contentToWrite = transpiledFileContent;
+          }
         }
+
+        writeFileSync(outputFilePath, contentToWrite);
 
         if (!options.silent) {
           logger.info(`Copied ${highlighter.bold(outputFileName)} to ${highlighter.bold(outputDir)}.`);
@@ -122,8 +138,16 @@ export const add = new Command()
 
         if (options.appendToIndex) {
           const indexFile = path.join(outputDir, isTypeScriptProject ? 'index.ts' : "index.js");
+          const exportLine = `export * from './${utilName}';`;
 
-          appendFileSync(indexFile, `export * from './${utilName}';\n`);
+          if (existsSync(indexFile)) {
+            const content = readFileSync(indexFile);
+            if (!content.includes(exportLine)) {
+              appendFileSync(indexFile, `${exportLine}\n`);
+            }
+          } else {
+            appendFileSync(indexFile, `${exportLine}\n`);
+          }
         }
 
         if (!options.silent) {
