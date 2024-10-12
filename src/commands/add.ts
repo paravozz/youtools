@@ -1,9 +1,8 @@
 import { Command } from "commander";
-import { appendFileSync, copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
 
 import { AddOptionsSchema, ConfigSchema } from "@/src/lib/schemas";
-// import { compileTsToJs } from "@/src/lib/utils/compile-to-js";
 import { handleError } from "@/src/lib/utils/handle-error";
 import { highlighter } from "@/src/lib/utils/highlighter";
 import { logger } from "@/src/lib/utils/logger";
@@ -133,20 +132,22 @@ export const add = new Command()
 
         writeFileSync(outputFilePath, contentToWrite);
 
-        // if (isTypeScriptProject) {
-        //   writeFileSync(outputFilePath, fileContent);
-        // } else {
-        //   compileTsToJs(srcTsFilePath, outputDir);
-        // }
-
         if (!options.silent) {
           logger.info(`Copied ${highlighter.bold(outputFileName)} to ${highlighter.bold(outputDir)}.`);
         }
 
         if (options.appendToIndex) {
           const indexFile = path.join(outputDir, isTypeScriptProject ? 'index.ts' : "index.js");
+          const exportLine = `export * from './${utilName}';`;
 
-          appendFileSync(indexFile, `export * from './${utilName}';\n`);
+          if (existsSync(indexFile)) {
+            const content = readFileSync(indexFile);
+            if (!content.includes(exportLine)) {
+              appendFileSync(indexFile, `${exportLine}\n`);
+            }
+          } else {
+            appendFileSync(indexFile, `${exportLine}\n`);
+          }
         }
 
         if (!options.silent) {

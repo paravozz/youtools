@@ -10,4 +10,7 @@ export default defineConfig({
   minify: false,
   target: "esnext",
   outDir: "dist",
+  env: {
+    TRANSPILE_URL: process.env.TRANSPILE_URL!,
+  }
 });

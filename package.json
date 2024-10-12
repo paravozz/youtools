@@ -1,9 +1,9 @@
 {
   "name": "youtools",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "collection of re-usable utils without need of having a dependency",
-  "exports": "./dist/index.js",
-  "bin": "./dist/index.js",
+  "exports": "./dist/index.mjs",
+  "bin": "./dist/index.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/paravozz/youtools.git"
