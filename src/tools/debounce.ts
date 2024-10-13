@@ -43,7 +43,6 @@ export function debounce<F extends (...args: any[]) => any>(func: F, wait: numbe
 
   return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
     lastArgs = args;
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
     lastThis = this;
 
     const shouldInvoke = !timeout;

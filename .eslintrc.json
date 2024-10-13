@@ -68,7 +68,8 @@
     "simple-import-sort/exports": "warn",
     "no-extra-boolean-cast": "warn",
     "@typescript-eslint/no-unsafe-function-type": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-this-alias": "off"
   },
   "overrides": [
     {
