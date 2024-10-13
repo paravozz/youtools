@@ -1,6 +1,6 @@
 {
   "name": "youtools",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "collection of re-usable utils without need of having a dependency",
   "exports": "./dist/index.mjs",
   "bin": "./dist/index.mjs",
