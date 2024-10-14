@@ -3,8 +3,6 @@ dist/
 
 .env.local
 
-package-lock.json
-
 # IntelliJ based IDEs
 .idea
 
