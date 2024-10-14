@@ -7,7 +7,7 @@ It's a ~~*utility library*~~ **collection of small utilities** that you can copy
 
 ---
 [![NPM version](https://img.shields.io/npm/v/youtools.svg?style=flat)](https://www.npmjs.org/package/youtools)
-
+[![Tests](https://img.shields.io/github/actions/workflow/status/paravozz/youtools/node.js.yml)](https://github.com/paravozz/youtools/actions/workflows/node.js.yml)
 ---
 
 Motivated by the fact that the current situation forces you to choose between micro-libraries
