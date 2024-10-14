@@ -26,7 +26,7 @@ This thing is highly inspired by [shadcn/ui](https://ui.shadcn.com/) (I mean, I 
 ## Usage
 
 This collection is meant to be used with `npx`.
-When you execute a command it will copy source file (or compiled js file, if you opt out typescript) to your codebase.
+When you execute a command it will copy source file (or transpiled js file, if you opt out typescript) to your codebase.
 You will be able to use, change, do whatever you want with it.
 
 List of utils available [here](/src/tools)
