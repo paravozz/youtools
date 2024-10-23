@@ -32,6 +32,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build
+        env:
+          TRANSPILE_URL: ${{ env.TRANSPILE_URL }}
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
